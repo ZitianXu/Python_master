@@ -1326,3 +1326,91 @@ line.set_global_opts(
 
 line.render()                # 生成图表
 
+# 数据可视化案例
+from pyecharts.charts import Map
+from pyecharts.options import VisualMapOpts
+
+
+
+map = Map()
+# 准备数据
+data = [
+    ("北京市", 9),
+    ("上海市", 99),
+    ("广西壮族自治区", 101),
+    ("广东省", 99),
+    ("浙江省", 499)
+]
+
+map.add("测试地图", data, "china")
+
+
+# 设置全局选项
+map.set_global_opts(
+    visualmap_opts = VisualMapOpts(
+        is_show = True,
+        is_piecewise= True,
+        pieces = [
+            {"min": 1, "max":9, "label":"1-9", "color": "#CCFFFF" },
+            {"min": 10, "max":99, "label":"10-99", "color": "#FF6666" },
+            {"min": 100, "max":500, "label":"100-500", "color": "#990033" },
+        ]
+    )
+)
+
+
+# 绘制地图
+map.render()
+
+
+# 绘制柱状图
+from pyecharts.charts import Bar, Timeline
+from pyecharts.options import LabelOpts
+from pyecharts.globals import ThemeType
+
+bar1 = Bar()
+bar1.add_xaxis(["中国", "美国", "英国"])
+bar1.add_yaxis("GDP", [30, 20, 10], label_opts=LabelOpts(position="right"))   
+# 反转xy轴
+bar1.reversal_axis()
+
+bar2 = Bar()
+bar2.add_xaxis(["中国", "美国", "英国"])
+bar2.add_yaxis("GDP", [50, 20, 10], label_opts=LabelOpts(position="right"))        # 把数字标签的位置移到右边
+# 反转xy轴
+bar2.reversal_axis()
+
+bar3 = Bar()
+bar3.add_xaxis(["中国", "美国", "英国"])
+bar3.add_yaxis("GDP", [60, 30, 15], label_opts=LabelOpts(position="right"))        # 把数字标签的位置移到右边
+# 反转xy轴
+bar3.reversal_axis()
+
+
+# 创建时间线对象并设置主题
+timeline = Timeline(
+    {"theme": ThemeType.LIGHT}
+    )
+# 在时间线内添加柱状图对象
+timeline.add(bar1, "点1")
+timeline.add(bar2, "点2")
+timeline.add(bar3, "点3")
+# 用时间线对象绘图而不是bar对象
+timeline.render("基础时间线柱状图.html")
+
+
+# 自动播放设置
+timeline.add_schema(
+    play_interval=100,
+    is_timeline_show=True,
+    is_auto_play=True,
+    is_loop_play=True
+
+)
+
+# # 绘制图表
+# bar.render("基础柱状图.html")
+
+
+
+

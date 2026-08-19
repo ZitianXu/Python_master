@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <title>Awesome-pyecharts</title>
                 <script type="text/javascript" src="https://assets.pyecharts.org/assets/v6/echarts.min.js"></script>
+            <script type="text/javascript" src="https://assets.pyecharts.org/assets/v6/maps/china.js"></script>
 
     
 </head>
 <body >
-    <div id="5cfabc03c0654564880bf540c13a0a7a" class="chart-container" style="width:900px; height:500px; "></div>
+    <div id="8ef56cd1ec854fde9d5dfec3c3d0556a" class="chart-container" style="width:900px; height:500px; "></div>
     <script>
-        var chart_5cfabc03c0654564880bf540c13a0a7a = echarts.init(
-            document.getElementById('5cfabc03c0654564880bf540c13a0a7a'), 'white', {renderer: 'canvas', locale: 'ZH'});
-        var option_5cfabc03c0654564880bf540c13a0a7a = {
+        var chart_8ef56cd1ec854fde9d5dfec3c3d0556a = echarts.init(
+            document.getElementById('8ef56cd1ec854fde9d5dfec3c3d0556a'), 'white', {renderer: 'canvas', locale: 'ZH'});
+        var option_8ef56cd1ec854fde9d5dfec3c3d0556a = {
     "animation": true,
     "animationThreshold": 2000,
     "animationDuration": 1000,
@@ -26,53 +27,57 @@
     },
     "series": [
         {
-            "type": "line",
-            "name": "GDP",
-            "connectNulls": false,
-            "xAxisIndex": 0,
-            "symbolSize": 4,
-            "showSymbol": true,
-            "smooth": false,
-            "clip": true,
-            "step": false,
-            "stackStrategy": "samesign",
-            "data": [
-                [
-                    "\u4e2d\u56fd",
-                    30
-                ],
-                [
-                    "\u7f8e\u56fd",
-                    20
-                ],
-                [
-                    "\u82f1\u56fd",
-                    10
-                ]
-            ],
-            "hoverAnimation": true,
+            "type": "map",
+            "name": "\u6d4b\u8bd5\u5730\u56fe",
             "label": {
                 "show": true,
                 "margin": 8,
                 "richInheritPlainLabel": true,
                 "valueAnimation": false
             },
-            "logBase": 10,
-            "seriesLayoutBy": "column",
-            "lineStyle": {
-                "show": false
-            },
-            "areaStyle": {
-                "opacity": 0
-            },
+            "map": "china",
+            "data": [
+                {
+                    "name": "\u5317\u4eac\u5e02",
+                    "value": 9
+                },
+                {
+                    "name": "\u4e0a\u6d77\u5e02",
+                    "value": 99
+                },
+                {
+                    "name": "\u5e7f\u897f\u58ee\u65cf\u81ea\u6cbb\u533a",
+                    "value": 101
+                },
+                {
+                    "name": "\u5e7f\u4e1c\u7701",
+                    "value": 99
+                },
+                {
+                    "name": "\u6d59\u6c5f\u7701",
+                    "value": 499
+                }
+            ],
+            "roam": true,
+            "aspectScale": 0.75,
+            "nameProperty": "name",
+            "selectedMode": false,
+            "zoom": 1,
             "zlevel": 0,
-            "z": 0
+            "z": 2,
+            "seriesLayoutBy": "column",
+            "datasetIndex": 0,
+            "mapValueCalculation": "sum",
+            "showLegendSymbol": true,
+            "preserveAspect": false,
+            "clip": false,
+            "emphasis": {}
         }
     ],
     "legend": [
         {
             "data": [
-                "GDP"
+                "\u6d4b\u8bd5\u5730\u56fe"
             ],
             "selected": {},
             "show": true,
@@ -121,79 +126,11 @@
         "padding": 5,
         "order": "seriesAsc"
     },
-    "xAxis": [
-        {
-            "show": true,
-            "scale": false,
-            "nameLocation": "end",
-            "nameGap": 15,
-            "nameTruncate": {},
-            "nameMoveOverlap": true,
-            "inverse": false,
-            "offset": 0,
-            "splitNumber": 5,
-            "minInterval": 0,
-            "silent": false,
-            "triggerEvent": false,
-            "splitLine": {
-                "show": true,
-                "lineStyle": {
-                    "show": false
-                }
-            },
-            "animation": true,
-            "animationThreshold": 2000,
-            "animationDuration": 1000,
-            "animationEasing": "cubicOut",
-            "animationDelay": 0,
-            "animationDurationUpdate": 300,
-            "animationEasingUpdate": "cubicOut",
-            "animationDelayUpdate": 0,
-            "data": [
-                "\u4e2d\u56fd",
-                "\u7f8e\u56fd",
-                "\u82f1\u56fd"
-            ]
-        }
-    ],
-    "yAxis": [
-        {
-            "show": true,
-            "scale": false,
-            "nameLocation": "end",
-            "nameGap": 15,
-            "nameTruncate": {},
-            "nameMoveOverlap": true,
-            "inverse": false,
-            "offset": 0,
-            "splitNumber": 5,
-            "minInterval": 0,
-            "silent": false,
-            "triggerEvent": false,
-            "splitLine": {
-                "show": true,
-                "lineStyle": {
-                    "show": false
-                }
-            },
-            "animation": true,
-            "animationThreshold": 2000,
-            "animationDuration": 1000,
-            "animationEasing": "cubicOut",
-            "animationDelay": 0,
-            "animationDurationUpdate": 300,
-            "animationEasingUpdate": "cubicOut",
-            "animationDelayUpdate": 0
-        }
-    ],
     "title": [
         {
             "show": true,
-            "text": "GDP\u5c55\u793a",
             "target": "blank",
             "subtarget": "blank",
-            "left": "center",
-            "bottom": "1%",
             "padding": 5,
             "itemGap": 10,
             "textAlign": "auto",
@@ -201,55 +138,9 @@
             "triggerEvent": false
         }
     ],
-    "toolbox": {
-        "show": true,
-        "orient": "horizontal",
-        "itemSize": 15,
-        "itemGap": 10,
-        "left": "80%",
-        "feature": {
-            "saveAsImage": {
-                "type": "png",
-                "backgroundColor": "auto",
-                "connectedBackgroundColor": "#fff",
-                "show": true,
-                "pixelRatio": 1
-            },
-            "restore": {
-                "show": true
-            },
-            "dataView": {
-                "show": true,
-                "readOnly": false,
-                "backgroundColor": "#fff",
-                "textareaColor": "#fff",
-                "textareaBorderColor": "#333",
-                "textColor": "#000",
-                "buttonColor": "#c23531",
-                "buttonTextColor": "#fff"
-            },
-            "dataZoom": {
-                "show": true,
-                "title": {},
-                "icon": {},
-                "filterMode": "filter"
-            },
-            "magicType": {
-                "show": true,
-                "type": [
-                    "line",
-                    "bar",
-                    "stack",
-                    "tiled"
-                ],
-                "title": {},
-                "icon": {}
-            }
-        }
-    },
     "visualMap": {
         "show": true,
-        "type": "continuous",
+        "type": "piecewise",
         "min": 0,
         "max": 100,
         "inRange": {
@@ -267,11 +158,31 @@
         "padding": 5,
         "showLabel": true,
         "itemWidth": 20,
-        "itemHeight": 140,
-        "borderWidth": 0
+        "itemHeight": 14,
+        "borderWidth": 0,
+        "pieces": [
+            {
+                "min": 1,
+                "max": 9,
+                "label": "1-9",
+                "color": "#CCFFFF"
+            },
+            {
+                "min": 10,
+                "max": 99,
+                "label": "10-99",
+                "color": "#FF6666"
+            },
+            {
+                "min": 100,
+                "max": 500,
+                "label": "100-500",
+                "color": "#990033"
+            }
+        ]
     }
 };
-        chart_5cfabc03c0654564880bf540c13a0a7a.setOption(option_5cfabc03c0654564880bf540c13a0a7a);
+        chart_8ef56cd1ec854fde9d5dfec3c3d0556a.setOption(option_8ef56cd1ec854fde9d5dfec3c3d0556a);
     </script>
 </body>
 </html>
