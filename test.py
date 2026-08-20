@@ -1412,5 +1412,52 @@ timeline.add_schema(
 # bar.render("基础柱状图.html")
 
 
+# 列表的sort方法
+my_list = [["a", 33], ["b", 55], ["c", 11]]
+
+# 基于带名函数排序
+# def choose_sort_key(element):
+#     return element[1]
+
+# my_list.sort(key = choose_sort_key, reverse = True)
+
+
+# 基于匿名函数排序
+
+my_list.sort(key = lambda element: element[1], reverse=True)
+
+print(my_list)
+
+
+
+
+
+
+# 设计一个类(e.g.登记表)
+class Student:
+    name = None       # 记录血汗俄国姓名
+    gender = None     # 记录性别
+    nationality = None # 国籍
+    native_place = None   # 籍贯
+    age = None     # 年龄
+
+
+
+# 创建一个对象(e.g.打印登记表)
+stu_1 = Student()
+
+# 对象属性赋值(e.g.填写表单)
+stu_1.name = "Andy"
+stu_1.gender = "male"
+stu_1.nationality = "China"
+stu_1.native_place = "Hangzhou"
+stu_1.age = 23
+
+# 获取对象中记录的信息
+print(stu_1.name)
+print(stu_1.gender)
+print(stu_1.nationality)
+print(stu_1.native_place)
+print(stu_1.age) 
 
 
