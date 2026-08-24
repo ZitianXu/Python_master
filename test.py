@@ -1546,4 +1546,3 @@ class Student:
 stu = Student("周杰伦", 66)
 print(stu.name)
 print(stu.age)
-print(stu.tel)
