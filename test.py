@@ -1461,3 +1461,89 @@ print(stu_1.native_place)
 print(stu_1.age) 
 
 
+# 定义一个带有成员方法的类
+class Student:
+    name = None
+
+    def say_hi(self):
+        print(f"大家好啊, 我是{self.name}, 请大家多多关照")
+
+    def say_hi2(self, msg):
+        print(f"大家好，我是{self.name}, {msg}")                                       #访问成员属性要用self，msg由外部传入不用self
+
+stu = Student()
+stu.name = "周杰伦"
+stu.say_hi2("哎哟不错哟")
+
+stu2 = Student()
+stu2.name = "林俊杰"
+stu2.say_hi()
+
+
+
+# 类和对象的关系，面向对象编程思路
+
+
+# 设计一个闹钟类
+
+class Clock:
+    id = None
+    price = None
+
+
+    def ring(self):
+        import winsound
+        winsound.Beep(2000, 3000)
+
+
+# 构建2个闹钟对象并让其工作
+clock1 = Clock()
+clock1.id = "003032"
+clock1.price = 19.99
+print(f"闹钟ID:{clock1.id}, 价格:{clock1.price}")
+
+# 内置方法响铃
+# clock1.ring()
+
+clock2 = Clock()
+clock2.id = "003033"
+clock2.price = 21.99
+print(f"闹钟ID:{clock2.id}, 价格:{clock2.price}")
+# clock1.ring()
+
+
+# 演示类的构造方法
+# 构造方法的名称: __init__()
+
+class Student:
+    # name = None
+    # age = None
+    # tel = None
+
+    def __init__(self, name, age, tel):
+        self.name = name
+        self.age = age
+        self.tel = tel
+        print(f"Student类创建了一个类对象")
+
+stu = Student("周杰伦", 66, 13500000666)
+print(stu.name)
+print(stu.age)
+print(stu.tel)
+
+
+class Student:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    # __str__魔术方法
+    def __str__(self):
+        return f"Student类对象, name:{self.name}, age:{self.age}"
+
+
+
+stu = Student("周杰伦", 66)
+print(stu.name)
+print(stu.age)
+print(stu.tel)
