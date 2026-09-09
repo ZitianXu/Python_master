@@ -1435,7 +1435,7 @@ print(my_list)
 
 # 设计一个类(e.g.登记表)
 class Student:
-    name = None       # 记录血汗俄国姓名
+    name = None       # 记录学生姓名
     gender = None     # 记录性别
     nationality = None # 国籍
     native_place = None   # 籍贯
@@ -1532,6 +1532,8 @@ print(stu.age)
 print(stu.tel)
 
 
+
+
 class Student:
     def __init__(self, name, age):
         self.name = name
@@ -1541,8 +1543,47 @@ class Student:
     def __str__(self):
         return f"Student类对象, name:{self.name}, age:{self.age}"
 
+    # __lt__魔术方法
+    def __lt__(self, other):
+        return self.age < other.age
+
+    # __le__魔术方法
+    def __le__(self, other):
+        return self.age <= other.age
+
+    def __eq__(self, other):
+        return self.age == other.age
 
 
-stu = Student("周杰伦", 66)
-print(stu.name)
-print(stu.age)
+stu1 = Student("周杰伦", 66)
+stu2 = Student("林俊杰", 67)
+print(stu1.name)
+print(stu2.age)
+print(stu1 < stu2)
+print(stu1 >= stu2)
+
+
+
+# 封装
+
+# 私有成员变量、私有成员方法：以__开头
+
+class Phone:
+    __current_voltage = 1
+
+    def __keep_single_core(self):
+        print("让CPU以单核方式运行")
+
+
+    def call_by_5g(self):
+        if self.__current_voltage >= 1:
+            print("5g通话已开启")
+        else:
+            self.__keep_single_core()
+            print("电量不足无法使用5g")
+
+
+phone = Phone()
+# phone.__keep_single_core()
+phone.call_by_5g()
+# print(phone.__current_voltage)
