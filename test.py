@@ -1647,3 +1647,32 @@ phone.control()
 print(phone.producer)    # 先继承的优先级高
 
 
+# 复写
+
+class Phone:
+    IMEI = None
+    producer = "ANIU"
+
+    def call_by_5g(self):
+        print("使用5g网络进行通话")
+
+
+# 定义子类，复写父类成员
+
+class MyPhone(Phone):
+    prodecer = "BNIU"
+
+    def call_by_5g(self):
+        print("开启CPU单核模式，确保通话的时候省电")
+
+        # 方式1
+        #  print(f"父类的厂商是：{phone.producer}")
+        # Phone.call_by_5g(self)
+        # 方式2
+        print(f"父类的厂商是:{super().producer}")
+        super().call_by_5g()
+        print("关闭CPU单核模式，确保性能")
+
+phone = MyPhone()
+phone.call_by_5g()
+print(phone.prodecer)
